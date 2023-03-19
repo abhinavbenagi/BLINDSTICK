@@ -6,6 +6,8 @@ GPIO.setwarnings(False)
 GPIO_TRIGGER=18
 GPIO_ECHO=24
 
+st=time.time()
+
 print("distance measurement in progress")
 
 GPIO.setup(GPIO_TRIGGER,GPIO.OUT)
@@ -29,7 +31,11 @@ distance=(TimeElapsed*34300)/2
 distance=round(distance,2)
 print("Measure  Distance = %.1f cm" %distance)
 d= str(distance)
+
+et=time.time()
+print("time taken to execute",et-st)
 speak("the object is at distance of"+d+"  cm")
+
 time.sleep(1)
 
 
